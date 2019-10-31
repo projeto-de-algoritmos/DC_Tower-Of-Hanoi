@@ -18,8 +18,8 @@ class TowerOfHanoi {
 
         guard numberOfDisks != 0 else { return }
 
-        solve(numberOfDisks: numberOfDisks - 1, from: source, to: destination, other: tower)
-        print("Moving disk from \(source) to \(destination)")
+        solve(numberOfDisks: numberOfDisks - 1, from: source, to: tower, other: destination)
+        print("Move disk \(numberOfDisks) from \(source.rawValue) to \(destination.rawValue)")
         solve(numberOfDisks: numberOfDisks - 1, from: tower, to: destination, other: source)
     }
 }
