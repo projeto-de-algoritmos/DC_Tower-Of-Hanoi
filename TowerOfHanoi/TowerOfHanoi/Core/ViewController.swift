@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        TowerOfHanoi.shared.solve(numberOfDisks: 4, from: .left, to: .right, other: .middle)
+        TowerOfHanoi.shared.solve(numberOfDisks: 3, from: .left, to: .right, auxiliary: .middle)
     }
 
 

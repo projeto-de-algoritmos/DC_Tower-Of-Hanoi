@@ -14,12 +14,12 @@ class TowerOfHanoi {
 
     static let shared = TowerOfHanoi()
 
-    func solve(numberOfDisks: Int, from source: Tower, to destination: Tower, other tower: Tower) {
+    func solve(numberOfDisks: Int, from source: Tower, to destination: Tower, auxiliary tower: Tower) {
 
         guard numberOfDisks != 0 else { return }
 
-        solve(numberOfDisks: numberOfDisks - 1, from: source, to: tower, other: destination)
+        solve(numberOfDisks: numberOfDisks - 1, from: source, to: tower, auxiliary: destination)
         print("Move disk \(numberOfDisks) from \(source.rawValue) to \(destination.rawValue)")
-        solve(numberOfDisks: numberOfDisks - 1, from: tower, to: destination, other: source)
+        solve(numberOfDisks: numberOfDisks - 1, from: tower, to: destination, auxiliary: source)
     }
 }
