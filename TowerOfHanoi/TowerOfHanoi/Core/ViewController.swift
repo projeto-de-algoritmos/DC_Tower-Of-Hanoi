@@ -7,13 +7,26 @@
 //
 
 import UIKit
+import SpriteKit
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
 
-        TowerOfHanoi.shared.solve(numberOfDisks: 3, from: .left, to: .right, auxiliary: .middle)
+        guard let skView = view as? SKView else { preconditionFailure("view \(String(describing: view)) must be of type \(SKView.self)") }
+
+        skView.showsFPS = true
+        skView.showsNodeCount = true
+
+        skView.ignoresSiblingOrder = true
+
+        let scene = GameScene(size: skView.frame.size)
+
+        scene.scaleMode = .aspectFill
+
+        skView.presentScene(scene)
+
     }
 
 

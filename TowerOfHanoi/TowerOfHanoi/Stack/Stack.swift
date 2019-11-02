@@ -7,3 +7,22 @@
 //
 
 import Foundation
+
+class Stack<T> {
+    private var elements = [T]()
+
+    public func push(_ element: T) {
+        self.elements.append(element)
+    }
+
+    public func pop() -> T? {
+        guard !self.elements.isEmpty else { return nil }
+        return self.elements.removeLast()
+    }
+
+    public func peek() -> T? {
+        guard !self.elements.isEmpty else { return nil }
+        return self.elements.last!
+    }
+
+}

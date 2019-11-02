@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E7912FC236DD21500919C8E /* DiskNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7912FB236DD21500919C8E /* DiskNode.swift */; };
+		6E7912FF236DD25400919C8E /* DiskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7912FE236DD25400919C8E /* DiskType.swift */; };
+		6E791302236DD4E500919C8E /* TowerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E791301236DD4E500919C8E /* TowerNode.swift */; };
+		6E791305236DD53F00919C8E /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E791304236DD53F00919C8E /* Stack.swift */; };
+		6E791308236DD63900919C8E /* BaseNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E791307236DD63900919C8E /* BaseNode.swift */; };
+		6E79130A236DD69200919C8E /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E791309236DD69200919C8E /* GameScene.swift */; };
 		6EF23C71236B55A30086A8ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF23C70236B55A30086A8ED /* AppDelegate.swift */; };
 		6EF23C73236B55A30086A8ED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF23C72236B55A30086A8ED /* SceneDelegate.swift */; };
 		6EF23C75236B55A30086A8ED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF23C74236B55A30086A8ED /* ViewController.swift */; };
@@ -18,6 +24,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6E7912FB236DD21500919C8E /* DiskNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskNode.swift; sourceTree = "<group>"; };
+		6E7912FE236DD25400919C8E /* DiskType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskType.swift; sourceTree = "<group>"; };
+		6E791301236DD4E500919C8E /* TowerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TowerNode.swift; sourceTree = "<group>"; };
+		6E791304236DD53F00919C8E /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
+		6E791307236DD63900919C8E /* BaseNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNode.swift; sourceTree = "<group>"; };
+		6E791309236DD69200919C8E /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		6EF23C6D236B55A30086A8ED /* TowerOfHanoi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TowerOfHanoi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EF23C70236B55A30086A8ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6EF23C72236B55A30086A8ED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +53,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E7912FA236DD20300919C8E /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				6E791306236DD62A00919C8E /* BaseNode */,
+				6E791300236DD4CB00919C8E /* TowerNode */,
+				6E7912FD236DD24600919C8E /* DiskNode */,
+			);
+			path = Nodes;
+			sourceTree = "<group>";
+		};
+		6E7912FD236DD24600919C8E /* DiskNode */ = {
+			isa = PBXGroup;
+			children = (
+				6E7912FB236DD21500919C8E /* DiskNode.swift */,
+				6E7912FE236DD25400919C8E /* DiskType.swift */,
+			);
+			path = DiskNode;
+			sourceTree = "<group>";
+		};
+		6E791300236DD4CB00919C8E /* TowerNode */ = {
+			isa = PBXGroup;
+			children = (
+				6E791301236DD4E500919C8E /* TowerNode.swift */,
+			);
+			path = TowerNode;
+			sourceTree = "<group>";
+		};
+		6E791303236DD53600919C8E /* Stack */ = {
+			isa = PBXGroup;
+			children = (
+				6E791304236DD53F00919C8E /* Stack.swift */,
+			);
+			path = Stack;
+			sourceTree = "<group>";
+		};
+		6E791306236DD62A00919C8E /* BaseNode */ = {
+			isa = PBXGroup;
+			children = (
+				6E791307236DD63900919C8E /* BaseNode.swift */,
+			);
+			path = BaseNode;
+			sourceTree = "<group>";
+		};
 		6EF23C64236B55A30086A8ED = {
 			isa = PBXGroup;
 			children = (
@@ -60,6 +115,8 @@
 		6EF23C6F236B55A30086A8ED /* TowerOfHanoi */ = {
 			isa = PBXGroup;
 			children = (
+				6E791303236DD53600919C8E /* Stack */,
+				6E7912FA236DD20300919C8E /* Nodes */,
 				6EF23C89236B612E0086A8ED /* TowerOfHanoi */,
 				6EF23C88236B611E0086A8ED /* Core */,
 			);
@@ -70,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				6EF23C70236B55A30086A8ED /* AppDelegate.swift */,
+				6E791309236DD69200919C8E /* GameScene.swift */,
 				6EF23C72236B55A30086A8ED /* SceneDelegate.swift */,
 				6EF23C74236B55A30086A8ED /* ViewController.swift */,
 				6EF23C76236B55A30086A8ED /* Main.storyboard */,
@@ -160,8 +218,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E791308236DD63900919C8E /* BaseNode.swift in Sources */,
+				6E7912FC236DD21500919C8E /* DiskNode.swift in Sources */,
+				6E791305236DD53F00919C8E /* Stack.swift in Sources */,
+				6E791302236DD4E500919C8E /* TowerNode.swift in Sources */,
 				6EF23C75236B55A30086A8ED /* ViewController.swift in Sources */,
+				6E79130A236DD69200919C8E /* GameScene.swift in Sources */,
 				6EF23C71236B55A30086A8ED /* AppDelegate.swift in Sources */,
+				6E7912FF236DD25400919C8E /* DiskType.swift in Sources */,
 				6EF23C73236B55A30086A8ED /* SceneDelegate.swift in Sources */,
 				6EF23C8B236B613F0086A8ED /* Tower.swift in Sources */,
 				6EF23C8D236B61FB0086A8ED /* TowerOfHanoi.swift in Sources */,

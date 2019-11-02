@@ -16,10 +16,10 @@ class DiskNode: SKSpriteNode {
 
         self.type = type
         let texture = SKTexture(imageNamed: "disk")
-        let color = self.color(for: type)
-        let size = self.size(for: type)
 
-        super.init(texture: texture, color: color, size: size)
+        super.init(texture: texture, color: .clear, size: .zero)
+        color = color(for: type)
+        size = size(for: type)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -34,8 +34,6 @@ class DiskNode: SKSpriteNode {
                 return .blue
             case .disk3:
                 return .red
-            default:
-                fatalError()
         }
     }
 
@@ -47,8 +45,6 @@ class DiskNode: SKSpriteNode {
                 return CGSize(width: 60, height: 15)
             case .disk3:
                 return CGSize(width: 70, height: 15)
-            default:
-                fatalError()
         }
     }
 
