@@ -64,11 +64,15 @@ class GameScene: SKScene {
         
         if let touch = touches.first?.location(in: self), let diskBeingMoved = diskBeingMoved {
             func updateMovedDiskTower(to tower: TowerNode) {
-                diskBeingMoved.moveTo(tower: tower)
-                diskBeingMoved.colorBlendFactor = 0
-                tower.disks.push(diskBeingMoved)
-                self.movedDiskOriginalTower = nil
-                self.diskBeingMoved = nil
+                if diskBeingMoved.type < (tower.disks.peek()?.type ?? Int.max) {
+                    diskBeingMoved.moveTo(tower: tower)
+                    diskBeingMoved.colorBlendFactor = 0
+                    tower.disks.push(diskBeingMoved)
+                    self.movedDiskOriginalTower = nil
+                    self.diskBeingMoved = nil
+                } else {
+                    updateMovedDiskTower(to: self.movedDiskOriginalTower!)
+                }
             }
             if leftTower.contains(touch) {
                 updateMovedDiskTower(to: leftTower)
