@@ -10,7 +10,14 @@ import UIKit
 import SpriteKit
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var solveButton: UIButton!
+    
+    @IBAction func solveHanoi(_ sender: Any) {
+        if let scene = ((view as? SKView)?.scene as? GameScene) {
+            scene.solveNext()
+        }
+    }
+    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
 
@@ -26,9 +33,17 @@ class ViewController: UIViewController {
         scene.scaleMode = .aspectFill
 
         skView.presentScene(scene)
-
+        
+        scene.gameStateDelegate = self
     }
-
-
 }
 
+extension ViewController: GameStateDelegate {
+    func becameSolvable() {
+        solveButton.isEnabled = true
+    }
+    
+    func becameUnsolvable() {
+        solveButton.isEnabled = false
+    }
+}

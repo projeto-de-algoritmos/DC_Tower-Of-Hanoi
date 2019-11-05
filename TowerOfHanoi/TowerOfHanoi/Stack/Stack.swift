@@ -10,6 +10,12 @@ import Foundation
 
 class Stack<T> {
     private var elements = [T]()
+    
+    public var count: Int {
+        get {
+            return elements.count
+        }
+    }
 
     public func push(_ element: T) {
         self.elements.append(element)

@@ -19,7 +19,6 @@
 		6EF23C7A236B55A80086A8ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EF23C79236B55A80086A8ED /* Assets.xcassets */; };
 		6EF23C7D236B55A80086A8ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EF23C7B236B55A80086A8ED /* LaunchScreen.storyboard */; };
 		6EF23C8B236B613F0086A8ED /* Tower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF23C8A236B613F0086A8ED /* Tower.swift */; };
-		6EF23C8D236B61FB0086A8ED /* TowerOfHanoi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF23C8C236B61FB0086A8ED /* TowerOfHanoi.swift */; };
 		E29000842371202C00D74D90 /* UIColor+random.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29000832371202C00D74D90 /* UIColor+random.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,7 +37,6 @@
 		6EF23C7C236B55A80086A8ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6EF23C7E236B55A80086A8ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6EF23C8A236B613F0086A8ED /* Tower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tower.swift; sourceTree = "<group>"; };
-		6EF23C8C236B61FB0086A8ED /* TowerOfHanoi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TowerOfHanoi.swift; sourceTree = "<group>"; };
 		E29000832371202C00D74D90 /* UIColor+random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+random.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -142,7 +140,6 @@
 			isa = PBXGroup;
 			children = (
 				6EF23C8A236B613F0086A8ED /* Tower.swift */,
-				6EF23C8C236B61FB0086A8ED /* TowerOfHanoi.swift */,
 			);
 			path = TowerOfHanoi;
 			sourceTree = "<group>";
@@ -236,7 +233,6 @@
 				6EF23C71236B55A30086A8ED /* AppDelegate.swift in Sources */,
 				6EF23C73236B55A30086A8ED /* SceneDelegate.swift in Sources */,
 				6EF23C8B236B613F0086A8ED /* Tower.swift in Sources */,
-				6EF23C8D236B61FB0086A8ED /* TowerOfHanoi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
