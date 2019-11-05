@@ -1,4 +1,4 @@
-# Agendador de Serviços
+# Torre de Hanoi
 
 **Número da Lista**: 4<br>
 **Conteúdo da Disciplina**: Dividir e Conquistar<br>
@@ -10,7 +10,7 @@
 | 15/0016310  |  Luis Gustavo Avelino |
 
 ## Sobre 
-Descreva os objetivos do seu projeto e como ele funciona. 
+Este projeto é um jogo que implementa as regras da Torre de Hanoi, e que também serve como visualizador do algoritmo de dividir e conquistar que soluciona o problema.
 
 ## Screenshots
 
@@ -20,9 +20,7 @@ Descreva os objetivos do seu projeto e como ele funciona.
 
 **Pré-requisitos**: XCode 10 ou superior.
 
-## Uso 
-Explique como usar seu projeto caso haja algum passo a passo após o comando de execução.
+## Uso
+Toque e arraste de uma torre para outra para mover os discos. Só é possível mover o disco do topo da torre, e os discos não podem ser movidos para cima de discos menores que eles.
 
-## Outros 
-Quaisquer outras informações sobre seu projeto podem ser descritas abaixo.
-
+Toque no botão `Solve next tower` para mover os discos de uma torre completa para a próxima.
