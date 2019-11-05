@@ -9,16 +9,77 @@
 import SpriteKit
 
 class GameScene: SKScene {
-
     var baseNode: BaseNode!
+
     var leftTower: TowerNode!
     var middleTower: TowerNode!
     var rightTower: TowerNode!
-    var disks = [DiskNode(type: .disk1), DiskNode(type: .disk2), DiskNode(type: .disk3)]
+    
+    var disks: [DiskNode] = {
+        var disksArray: [DiskNode] = []
+        for i in 0..<5 {
+            disksArray.append(DiskNode(type: i))
+        }
+        return disksArray
+    }()
+    
+    var diskBeingMoved: DiskNode?
+    var movedDiskOriginalTower: TowerNode?
 
     override func didMove(to view: SKView) {
         super.didMove(to: view)
         setupNodes()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        
+        if let touch = touches.first?.location(in: self) {
+            func popDisk(from tower: TowerNode) {
+                movedDiskOriginalTower = tower
+                diskBeingMoved = tower.disks.pop()
+                diskBeingMoved?.colorBlendFactor = 0.5
+            }
+
+            if leftTower.contains(touch) {
+                popDisk(from: leftTower)
+            } else if middleTower.contains(touch) {
+                popDisk(from: middleTower)
+            } else if rightTower.contains(touch) {
+                popDisk(from: rightTower)
+            }
+        }
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesMoved(touches, with: event)
+        
+        if let touch = touches.first?.location(in: self) {
+            diskBeingMoved?.position = touch
+        }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        
+        if let touch = touches.first?.location(in: self), let diskBeingMoved = diskBeingMoved {
+            func updateMovedDiskTower(to tower: TowerNode) {
+                diskBeingMoved.moveTo(tower: tower)
+                diskBeingMoved.colorBlendFactor = 0
+                tower.disks.push(diskBeingMoved)
+                self.movedDiskOriginalTower = nil
+                self.diskBeingMoved = nil
+            }
+            if leftTower.contains(touch) {
+                updateMovedDiskTower(to: leftTower)
+            } else if middleTower.contains(touch) {
+                updateMovedDiskTower(to: middleTower)
+            } else if rightTower.contains(touch) {
+                updateMovedDiskTower(to: rightTower)
+            } else {
+                updateMovedDiskTower(to: self.movedDiskOriginalTower!)
+            }
+        }
     }
 
     func setupNodes() {
@@ -30,17 +91,20 @@ class GameScene: SKScene {
         leftTower = TowerNode(type: .left)
         leftTower.anchorPoint = CGPoint(x: 0.5, y: 0)
         leftTower.position = CGPoint(x: size.width * 0.25, y: baseNode.frame.maxY)
-//        for disk in disks {
-//            leftTower.disks.push(disk)
-//        }
+        for disk in disks.reversed() {
+            disk.moveTo(tower: leftTower)
+            leftTower.disks.push(disk)
+            disk.zPosition = 1
+            addChild(disk)
+        }
         addChild(leftTower)
 
-        middleTower = TowerNode(type: .left)
+        middleTower = TowerNode(type: .middle)
         middleTower.anchorPoint = CGPoint(x: 0.5, y: 0)
         middleTower.position = CGPoint(x: size.width * 0.5, y: baseNode.frame.maxY)
         addChild(middleTower)
 
-        rightTower = TowerNode(type: .left)
+        rightTower = TowerNode(type: .right)
         rightTower.anchorPoint = CGPoint(x: 0.5, y: 0)
         rightTower.position = CGPoint(x: size.width * 0.75, y: baseNode.frame.maxY)
         addChild(rightTower)

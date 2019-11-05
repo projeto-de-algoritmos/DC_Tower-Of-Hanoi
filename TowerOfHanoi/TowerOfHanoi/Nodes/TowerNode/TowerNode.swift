@@ -18,7 +18,6 @@ class TowerNode: SKSpriteNode {
 
         let texture = SKTexture(imageNamed: "tower")
         super.init(texture: texture, color: .clear, size: texture.size())
-
     }
 
     required init?(coder aDecoder: NSCoder) {

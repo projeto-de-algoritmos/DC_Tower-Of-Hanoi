@@ -10,9 +10,9 @@ import SpriteKit
 
 class DiskNode: SKSpriteNode {
 
-    let type: DiskType
+    let type: Int
 
-    init(type: DiskType) {
+    init(type: Int) {
 
         self.type = type
         let texture = SKTexture(imageNamed: "disk")
@@ -26,26 +26,31 @@ class DiskNode: SKSpriteNode {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private func color(for type: DiskType) -> UIColor {
+    private func color(for type: Int) -> UIColor {
         switch type {
-            case .disk1:
+            case 0:
                 return .green
-            case .disk2:
+            case 1:
                 return .blue
-            case .disk3:
+            case 2:
                 return .red
+            default:
+                return .magenta
+        }
+    }
+    
+    func moveTo(tower: TowerNode) {
+        if let topDiskPosition = tower.disks.peek()?.position {
+            self.position = CGPoint(x: topDiskPosition.x,
+                                    y: topDiskPosition.y + self.size.height)
+        } else {
+            self.position = CGPoint(x: tower.position.x,
+                                    y: tower.frame.minY + self.size.height)
         }
     }
 
-    func size(for type: DiskType) -> CGSize {
-        switch type {
-            case .disk1:
-                return CGSize(width: 50, height: 15)
-            case .disk2:
-                return CGSize(width: 60, height: 15)
-            case .disk3:
-                return CGSize(width: 70, height: 15)
-        }
+    func size(for type: Int) -> CGSize {
+        return CGSize(width: 50 + 10*type, height: 15)
     }
 
 }
