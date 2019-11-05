@@ -18,25 +18,13 @@ class DiskNode: SKSpriteNode {
         let texture = SKTexture(imageNamed: "disk")
 
         super.init(texture: texture, color: .clear, size: .zero)
-        color = color(for: type)
+        color = UIColor.random
         size = size(for: type)
+        colorBlendFactor = 0.5
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-
-    private func color(for type: Int) -> UIColor {
-        switch type {
-            case 0:
-                return .green
-            case 1:
-                return .blue
-            case 2:
-                return .red
-            default:
-                return .magenta
-        }
     }
     
     func moveTo(tower: TowerNode) {

@@ -38,7 +38,6 @@ class GameScene: SKScene {
             func popDisk(from tower: TowerNode) {
                 movedDiskOriginalTower = tower
                 diskBeingMoved = tower.disks.pop()
-                diskBeingMoved?.colorBlendFactor = 0.5
             }
 
             if leftTower.contains(touch) {
@@ -66,7 +65,6 @@ class GameScene: SKScene {
             func updateMovedDiskTower(to tower: TowerNode) {
                 if diskBeingMoved.type < (tower.disks.peek()?.type ?? Int.max) {
                     diskBeingMoved.moveTo(tower: tower)
-                    diskBeingMoved.colorBlendFactor = 0
                     tower.disks.push(diskBeingMoved)
                     self.movedDiskOriginalTower = nil
                     self.diskBeingMoved = nil
